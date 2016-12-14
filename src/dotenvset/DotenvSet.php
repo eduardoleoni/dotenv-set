@@ -4,29 +4,29 @@ namespace dotenvset;
 
 class DotenvSet
 {
-	public $path = "../../../.env";
+	public static $path = __DIR__ . DIRECTORY_SEPARATOR . "../../../../../.env";
 
 	public static function getPath()
 	{
-		return $this->path;
+		return self::$path;
 	}
 
 	public static function setPath($path)
 	{
-		$this->path = $path;
+		self::$path = $path;
 	}
 
-	public function set($variable, $value, $path=null)
+	public static function set($variable, $value, $path=null)
 	{
 		if ($path) {
-			$this->path = $path;
+			self::$path = $path;
 		}
 
 		$string = "$variable=$value";
-		$get = $this->getDotEnv();
+		$get = self::getDotEnv();
 
 		if (strpos($get, $variable) != true) {
-			file_put_contents($this->path, file_get_contents($this->path) . "\n" . $string);
+			file_put_contents(self::$path, file_get_contents(self::$path) . "\n" . $string);
 		} else {
 
 			$all = explode("\n", $get);
@@ -41,23 +41,23 @@ class DotenvSet
 				$env .= $each . "\n";
 			}
 
-			file_put_contents($this->path, $env);
+			file_put_contents(self::$path, $env);
 
 		}
 	}
 
 	public static function getDotEnv()
 	{
-		$this->createIfDoesntExist();
-		$env = file_get_contents($this->path);
+		self::createIfDoesntExist();
+		$env = file_get_contents(self::$path);
 
 		return $env;
 	}
 
 	public static function createIfDoesntExist()
 	{
-		if (!file_exists($this->path)) {
-			file_put_contents($this->path, "");
+		if (!file_exists(self::$path)) {
+			file_put_contents(self::$path, "");
 		}
 	}
 }
