@@ -1,6 +1,6 @@
 <?php
 
-namespace DotenvSet;
+namespace dotenvset;
 
 class DotenvSet
 {

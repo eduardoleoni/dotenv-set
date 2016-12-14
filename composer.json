@@ -1,5 +1,5 @@
 {
-    "name": "edwardlyons/dotenv-set",
+    "name": "edwardlyons/dotenvset",
     "type": "library",
     "description": "Environment variable setter",
     "keywords": ["dotenv",".env","environment"],
