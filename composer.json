@@ -1,0 +1,24 @@
+{
+    "name": "edwardlyons/dotenv-set",
+    "type": "library",
+    "description": "Environment variable setter",
+    "keywords": ["dotenv",".env","environment"],
+    "homepage": "https://github.com/eduardoleoni/dotenv-set",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Edward Lyons",
+            "email": "c.eduardo.leoni@gmail.com",
+            "homepage": "eduardoleoni.com.br",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "dotenv-set": "src"
+        }
+    }
+}
